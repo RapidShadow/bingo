@@ -14,7 +14,10 @@ nArray = [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45];
 gArray = [46,47,48,49,50,51,52,53,54,55,56,57,58,59,60];
 oArray = [61,62,63,64,65,66,67,68,69,70,71,72,73,74,75];
 while (!card.generated) {
-  while(card.b.length !=5 ){
+  while(card.b.length !=6 ){
+    if(card.b.length == 0){
+      card.b.push("B");
+    }
     randomNum = Math.floor(Math.random() * bArray.length);
     console.log("this is the random num " + bArray[randomNum]);
     card.b.push(bArray[randomNum]);
@@ -23,7 +26,10 @@ while (!card.generated) {
     // console.log(card.b);
     // console.log(bArray);
   }
-  while(card.i.length !=5 ){
+  while(card.i.length !=6 ){
+    if(card.i.length == 0){
+      card.i.push("I");
+    }
     randomNum = Math.floor(Math.random() * iArray.length);
     console.log("this is the random num " + iArray[randomNum]);
     card.i.push(iArray[randomNum]);
@@ -32,8 +38,11 @@ while (!card.generated) {
     // console.log(card.i);
     // console.log(iArray);
   }
-  while(card.n.length !=5 ){
-    if(card.n.length == 2){
+  while(card.n.length !=6 ){
+    if(card.n.length == 0){
+      card.n.push("N");
+    }
+    if(card.n.length == 3){
       card.n.push("FREE");
     }
     randomNum = Math.floor(Math.random() * nArray.length);
@@ -44,7 +53,10 @@ while (!card.generated) {
     // console.log(card.n);
     // console.log(nArray);
   }
-  while(card.g.length !=5 ){
+  while(card.g.length !=6 ){
+    if(card.g.length == 0){
+      card.g.push("G");
+    }
     randomNum = Math.floor(Math.random() * gArray.length);
     console.log("this is the random num " + gArray[randomNum]);
     card.g.push(gArray[randomNum]);
@@ -53,7 +65,10 @@ while (!card.generated) {
     // console.log(card.g);
     // console.log(gArray);
   }
-  while(card.o.length !=5 ){
+  while(card.o.length !=6 ){
+    if(card.o.length == 0){
+      card.o.push("O");
+    }
     randomNum = Math.floor(Math.random() * oArray.length);
     console.log("this is the random num " + oArray[randomNum]);
     card.o.push(oArray[randomNum]);
@@ -90,9 +105,19 @@ for (let row of tableArr) {
     newCell.textContent = cell;
     newCell.id = "card"+counter;
     console.log(newCell.id);
+    if(newCell.textContent == "B" || newCell.textContent == "I" || newCell.textContent == "N" || newCell.textContent == "G" || newCell.textContent == "O"){
+      newCell.style.background = "#ffffff";
+      newCell.style.border = "none";
+      newCell.style.fontSize = "120px";
+      newCell.style.padding = 0;
+      newCell.style.textAlign = "left";
+      newCell.style.width="20%";
+      newCell.style.fontWeight="900";
+    }
+    else{
     newCell.addEventListener("click", function() {
       document.getElementById(newCell.id).style.background = "#915cab";
-    });
+    });}
     counter++;
   }
 }
