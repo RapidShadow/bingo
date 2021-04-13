@@ -110,14 +110,17 @@ for (let row of tableArr) {
       newCell.style.border = "none";
       newCell.style.fontSize = "120px";
       newCell.style.padding = 0;
-      newCell.style.textAlign = "left";
-      newCell.style.width="20%";
-      newCell.style.fontWeight="900";
+
+      newCell.style.fontWeight="700";
     }
     else{
     newCell.addEventListener("click", function() {
       document.getElementById(newCell.id).style.background = "#915cab";
-    });}
+    });
+    newCell.addEventListener("dblclick", function() {
+      document.getElementById(newCell.id).style.background = "#ffffff";
+    });
+  }
     counter++;
   }
 }
